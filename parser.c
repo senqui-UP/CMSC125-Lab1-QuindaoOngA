@@ -12,10 +12,16 @@ int parse_command(char *line, Command *cmd) {
 
     cmd->append = 0;
     cmd->background = 0;
+    cmd->arg_count = 0;
+
+    /* work on a copy so the caller's buffer is not mutated by strtok */
+    static char buf[1024];
+    strncpy(buf, line, sizeof(buf) - 1);
+    buf[sizeof(buf) - 1] = '\0';
 
     int i = 0;
 
-    char *token = strtok(line, " ");
+    char *token = strtok(buf, " ");
 
     while (token != NULL) {
 
@@ -89,6 +95,7 @@ int parse_command(char *line, Command *cmd) {
     }
 
     cmd->args[i] = NULL;
+    cmd->arg_count = i;
 
     if (i > 0) {
         cmd->command = cmd->args[0];

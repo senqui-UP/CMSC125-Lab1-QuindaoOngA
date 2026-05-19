@@ -27,10 +27,14 @@ int main() {
         if (strlen(line) == 0)
             continue;
 
-        Command cmd;
-
+        /* keep a safe copy of the original for background job display;
+           parse_command now works on its own internal copy so line is
+           no longer mutated by strtok */
         char original_cmd[1024];
-        strcpy(original_cmd, line);
+        strncpy(original_cmd, line, sizeof(original_cmd) - 1);
+        original_cmd[sizeof(original_cmd) - 1] = '\0';
+
+        Command cmd;
 
         if (!parse_command(line, &cmd)) {
             continue;
