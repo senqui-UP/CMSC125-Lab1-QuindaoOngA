@@ -19,26 +19,26 @@ int parse_command(char *line, Command *cmd) {
 
     while (token != NULL) {
 
-        /* input redirection */
         if (strcmp(token, "<") == 0) {
 
             token = strtok(NULL, " ");
 
             if (token == NULL) {
-                fprintf(stderr, "Syntax error: missing input file\n");
+                fprintf(stderr,
+                        "Syntax error: missing input file\n");
                 return 0;
             }
 
             cmd->input_file = token;
         }
 
-        /* overwrite output */
         else if (strcmp(token, ">") == 0) {
 
             token = strtok(NULL, " ");
 
             if (token == NULL) {
-                fprintf(stderr, "Syntax error: missing output file\n");
+                fprintf(stderr,
+                        "Syntax error: missing output file\n");
                 return 0;
             }
 
@@ -46,13 +46,14 @@ int parse_command(char *line, Command *cmd) {
             cmd->append = 0;
         }
 
-        /* append output */
+
         else if (strcmp(token, ">>") == 0) {
 
             token = strtok(NULL, " ");
 
             if (token == NULL) {
-                fprintf(stderr, "Syntax error: missing output file\n");
+                fprintf(stderr,
+                        "Syntax error: missing output file\n");
                 return 0;
             }
 
@@ -60,13 +61,20 @@ int parse_command(char *line, Command *cmd) {
             cmd->append = 1;
         }
 
-        /* background execution */
         else if (strcmp(token, "&") == 0) {
 
+            token = strtok(NULL, " ");
+
+            if (token != NULL) {
+                fprintf(stderr,
+                        "Syntax error: '&' must be at end\n");
+                return 0;
+            }
+
             cmd->background = 1;
+            break;
         }
 
-        /* normal arguments */
         else {
 
             cmd->args[i++] = token;
