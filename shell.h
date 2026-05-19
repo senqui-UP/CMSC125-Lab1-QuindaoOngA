@@ -12,5 +12,11 @@ typedef struct {
     int background;
 } Command;
 
+/* parser */
+int parse_command(char *line, Command *cmd);
+
+/* executor */
+void execute_command(Command *cmd, char *original_cmd);
+void cleanup_background_jobs();
 
 #endif //CMSC125_LAB1_QUINDAOONGA_SHELL_H
