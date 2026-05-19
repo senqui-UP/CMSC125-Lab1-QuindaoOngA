@@ -20,15 +20,25 @@ int handle_builtin(Command *cmd) {
     /* cd */
     if (strcmp(cmd->command, "cd") == 0) {
 
+        const char *path;
+
         if (cmd->args[1] == NULL) {
 
-            fprintf(stderr, "cd: missing argument\n");
+            path = getenv("HOME");
+
+            if (path == NULL) {
+                fprintf(stderr,
+                        "cd: HOME not set\n");
+                return 1;
+            }
 
         } else {
 
-            if (chdir(cmd->args[1]) != 0) {
-                perror("cd");
-            }
+            path = cmd->args[1];
+        }
+
+        if (chdir(path) != 0) {
+            perror("cd");
         }
 
         return 1;

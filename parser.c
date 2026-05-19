@@ -46,7 +46,6 @@ int parse_command(char *line, Command *cmd) {
             cmd->append = 0;
         }
 
-
         else if (strcmp(token, ">>") == 0) {
 
             token = strtok(NULL, " ");
@@ -76,6 +75,12 @@ int parse_command(char *line, Command *cmd) {
         }
 
         else {
+
+            if (i >= 255) {
+                fprintf(stderr,
+                        "mysh: too many arguments (max 255)\n");
+                return 0;
+            }
 
             cmd->args[i++] = token;
         }

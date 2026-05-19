@@ -15,6 +15,9 @@ typedef struct {
 /* parser */
 int parse_command(char *line, Command *cmd);
 
+/* builtins */
+int handle_builtin(Command *cmd);
+
 /* executor */
 void execute_command(Command *cmd, char *original_cmd);
 void cleanup_background_jobs();
