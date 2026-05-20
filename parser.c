@@ -3,6 +3,17 @@
 
 #include "shell.h"
 
+// Strip trailing '&' from a token in-place
+static int strip_background(char *token, Command *cmd) {
+    int len = strlen(token);
+    if (len > 1 && token[len - 1] == '&') {
+        token[len - 1] = '\0';
+        cmd->background = 1;
+        return 1;
+    }
+    return 0;
+}
+
 int parse_command(char *line, Command *cmd) {
 
     cmd->command = NULL;
@@ -24,6 +35,8 @@ int parse_command(char *line, Command *cmd) {
     char *token = strtok(buf, " ");
 
     while (token != NULL) {
+
+        strip_background(token, cmd);
 
         if (strcmp(token, "<") == 0) {
 

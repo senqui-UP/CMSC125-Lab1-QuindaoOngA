@@ -4,10 +4,9 @@
 typedef struct {
     char *command;
     char *args[256];
-
+    int   arg_count;      // add this
     char *input_file;
     char *output_file;
-
     int append;
     int background;
 } Command;
