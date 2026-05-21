@@ -160,3 +160,16 @@ The script also runs a compilation test via `make` before the test cases begin, 
 - **Input line length is capped at 1024 characters.** Lines longer than this are silently truncated by `fgets`.
 - **No environment variable expansion.** Tokens like `$HOME` or `$PATH` are passed literally to commands and are not expanded by the shell.
 - **No signal forwarding.** `SIGINT` (Ctrl-C) currently terminates the entire shell rather than only the foreground child process.
+
+---
+
+## Screenshots
+
+### Basic command execution
+![basic](screenshots/basic.png)
+
+### I/O Redirection
+![redirection](screenshots/redirection.png)
+
+### Background jobs
+![background](screenshots/background.png)
