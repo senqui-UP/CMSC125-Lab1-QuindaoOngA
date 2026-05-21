@@ -1,8 +1,15 @@
 CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -g
 
-all:
-	$(CC) $(CFLAGS) main.c parser.c executor.c builtins.c -o mysh
+OBJ = main.o parser.o executor.o builtins.o
+
+all: mysh
+
+mysh: $(OBJ)
+	$(CC) $(CFLAGS) -o mysh $(OBJ)
+
+%.o: %.c shell.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f mysh
+	rm -f mysh $(OBJ)
