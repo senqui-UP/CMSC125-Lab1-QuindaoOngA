@@ -1,0 +1,149 @@
+=====================================
+COMPILATION TEST
+=====================================
+make: Nothing to be done for 'all'.
+
+=====================================
+TEST 1: BUILT-IN COMMANDS
+=====================================
+mysh> /mnt/c/Users/sen/OneDrive/Documents/!!!UPV/2526 Sem 2/CMSC 125/Lab Submissions/CMSC125-Lab1-QuindaoOngA
+mysh> Exiting mysh...
+mysh> mysh> /tmp
+mysh> Exiting mysh...
+mysh> mysh> Exiting mysh...
+
+=====================================
+TEST 2: EXTERNAL COMMANDS
+=====================================
+mysh> CMakeLists.txt    README.md   builtins.o  executor.o  main.o  new.txt  out2.txt  parser.o     shell.h
+Makefile        builtins.c  executor.c  main.c      mysh    out.txt  parser.c  screenshots  test.sh
+mysh> Exiting mysh...
+mysh> total 116
+drwxrwxrwx 1 sen sen  4096 May 22 04:06 .
+drwxrwxrwx 1 sen sen  4096 May 22 00:16 ..
+drwxrwxrwx 1 sen sen  4096 May 22 04:05 .git
+-rwxrwxrwx 1 sen sen    39 May 22 03:04 .gitignore
+drwxrwxrwx 1 sen sen  4096 May 19 23:54 .idea
+drwxrwxrwx 1 sen sen  4096 May 19 23:54 .vscode
+-rwxrwxrwx 1 sen sen   211 May 20 01:25 CMakeLists.txt
+-rwxrwxrwx 1 sen sen   224 May 22 03:05 Makefile
+-rwxrwxrwx 1 sen sen  5843 May 22 03:10 README.md
+-rwxrwxrwx 1 sen sen  1099 May 20 01:55 builtins.c
+-rwxrwxrwx 1 sen sen  8832 May 22 04:06 builtins.o
+-rwxrwxrwx 1 sen sen  4252 May 20 02:00 executor.c
+-rwxrwxrwx 1 sen sen 13816 May 22 04:06 executor.o
+-rwxrwxrwx 1 sen sen  1038 May 20 02:00 main.c
+-rwxrwxrwx 1 sen sen  8728 May 22 04:06 main.o
+-rwxrwxrwx 1 sen sen 32096 May 22 04:06 mysh
+-rwxrwxrwx 1 sen sen     8 May 22 03:52 new.txt
+-rwxrwxrwx 1 sen sen    12 May 22 03:51 out.txt
+-rwxrwxrwx 1 sen sen     8 May 22 03:52 out2.txt
+-rwxrwxrwx 1 sen sen  2628 May 20 22:59 parser.c
+-rwxrwxrwx 1 sen sen  9984 May 22 04:06 parser.o
+drwxrwxrwx 1 sen sen  4096 May 22 03:57 screenshots
+-rwxrwxrwx 1 sen sen   548 May 20 22:58 shell.h
+-rwxrwxrwx 1 sen sen  3097 May 20 01:25 test.sh
+mysh> Exiting mysh...
+mysh> hello world
+mysh> Exiting mysh...
+mysh> mysh: command not found: nonexistent_command
+Command exited with code 127
+mysh> Exiting mysh...
+
+=====================================
+TEST 3: OUTPUT REDIRECTION
+=====================================
+mysh> mysh> hello
+mysh> Exiting mysh...
+
+=====================================
+TEST 4: APPEND REDIRECTION
+=====================================
+mysh> mysh> mysh> hello
+world
+mysh> Exiting mysh...
+
+=====================================
+TEST 5: INPUT REDIRECTION
+=====================================
+mysh> 2
+mysh> Exiting mysh...
+
+=====================================
+TEST 6: COMBINED REDIRECTION
+=====================================
+mysh> mysh> apple
+banana
+orange
+mysh> Exiting mysh...
+mysh> mysh> apple
+banana
+orange
+mysh> Exiting mysh...
+
+=====================================
+TEST 7: BACKGROUND JOBS
+=====================================
+mysh> [1] Started background job: sleep 3 (PID: 495)
+mysh> shell responsive
+mysh> Exiting mysh...
+mysh> [1] Started background job: sleep 3 (PID: 499)
+mysh> [2] Started background job: sleep 5 (PID: 500)
+mysh> multiple jobs running
+mysh> Exiting mysh...
+
+=====================================
+TEST 8: ERROR HANDLING
+=====================================
+mysh> Syntax error: missing output file
+mysh> Exiting mysh...
+mysh> Syntax error: missing input file
+mysh> Exiting mysh...
+mysh> open input file: No such file or directory
+Command exited with code 1
+mysh> Exiting mysh...
+
+=====================================
+TEST 9: EDGE CASES
+=====================================
+mysh> mysh> Exiting mysh...
+mysh> total 116
+drwxrwxrwx 1 sen sen  4096 May 22  2026 .
+drwxrwxrwx 1 sen sen  4096 May 22 00:16 ..
+drwxrwxrwx 1 sen sen  4096 May 22 04:05 .git
+-rwxrwxrwx 1 sen sen    39 May 22 03:04 .gitignore
+drwxrwxrwx 1 sen sen  4096 May 19 23:54 .idea
+drwxrwxrwx 1 sen sen  4096 May 19 23:54 .vscode
+-rwxrwxrwx 1 sen sen   211 May 20 01:25 CMakeLists.txt
+-rwxrwxrwx 1 sen sen   224 May 22 03:05 Makefile
+-rwxrwxrwx 1 sen sen  5843 May 22 03:10 README.md
+-rwxrwxrwx 1 sen sen  1099 May 20 01:55 builtins.c
+-rwxrwxrwx 1 sen sen  8832 May 22 04:06 builtins.o
+-rwxrwxrwx 1 sen sen  4252 May 20 02:00 executor.c
+-rwxrwxrwx 1 sen sen 13816 May 22 04:06 executor.o
+-rwxrwxrwx 1 sen sen    12 May 22  2026 input.txt
+-rwxrwxrwx 1 sen sen  1038 May 20 02:00 main.c
+-rwxrwxrwx 1 sen sen  8728 May 22 04:06 main.o
+-rwxrwxrwx 1 sen sen 32096 May 22 04:06 mysh
+-rwxrwxrwx 1 sen sen     8 May 22 03:52 new.txt
+-rwxrwxrwx 1 sen sen    12 May 22  2026 out.txt
+-rwxrwxrwx 1 sen sen     8 May 22 03:52 out2.txt
+-rwxrwxrwx 1 sen sen  2628 May 20 22:59 parser.c
+-rwxrwxrwx 1 sen sen  9984 May 22 04:06 parser.o
+drwxrwxrwx 1 sen sen  4096 May 22 03:57 screenshots
+-rwxrwxrwx 1 sen sen   548 May 20 22:58 shell.h
+-rwxrwxrwx 1 sen sen    20 May 22  2026 sorted.txt
+-rwxrwxrwx 1 sen sen    20 May 22  2026 sorted2.txt
+-rwxrwxrwx 1 sen sen  3097 May 20 01:25 test.sh
+-rwxrwxrwx 1 sen sen    20 May 22  2026 unsorted.txt
+mysh> Exiting mysh...
+mysh> this is a long command for testing purposes
+mysh> Exiting mysh...
+
+=====================================
+CLEANUP
+=====================================
+
+=====================================
+ALL TESTS COMPLETED
+=====================================
