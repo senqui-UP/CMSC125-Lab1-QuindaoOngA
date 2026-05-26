@@ -41,6 +41,7 @@ int main() {
         }
 
         execute_command(&cmd, original_cmd);
+		free_command(&cmd);
     }
 
     return 0;
